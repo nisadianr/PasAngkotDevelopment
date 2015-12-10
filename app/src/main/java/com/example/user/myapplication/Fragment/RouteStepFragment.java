@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.user.myapplication.adapter.AdapterStep;
+import com.example.user.myapplication.adapter.AdapterRouteStep;
 import com.example.user.myapplication.R;
 
 import org.json.JSONException;
@@ -33,7 +33,7 @@ public class RouteStepFragment extends Fragment {
         View v = inflater.inflate(R.layout.list_step, parent, false);
         listView = (ListView) v.findViewById(R.id.listviewsolution);
 
-        AdapterStep adapter = new AdapterStep(steps);
+        AdapterRouteStep adapter = new AdapterRouteStep(steps);
 
         listView.setAdapter(adapter);
         return v;

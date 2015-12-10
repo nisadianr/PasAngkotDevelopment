@@ -1,5 +1,8 @@
 package com.example.user.myapplication.adapter;
 
+import android.support.v4.app.FragmentManager;
+import android.content.Context;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,21 +21,27 @@ import java.util.List;
 /**
  * Created by user on 11/12/2015.
  */
-public class AdapterRouteStep extends BaseAdapter {
+public class AdapterRouteSolution extends BaseAdapter{
 
     List<JSONObject> datas;
+    FragmentManager fm;
 
-    public AdapterRouteStep(){
+    public AdapterRouteSolution(){
         datas = new ArrayList<>();
     }
 
-    public AdapterRouteStep(List<JSONObject> datas){
+    public AdapterRouteSolution(Context context, List<JSONObject> listRoute){
+        datas = listRoute;
+        fm =  ((ActionBarActivity)context).getSupportFragmentManager();
+    }
+
+    public AdapterRouteSolution(List<JSONObject> datas){
         this.datas = datas;
     }
 
-    public void add(JSONObject obj){
-        datas.add(obj);
-    }
+//    public void add(Route obj){
+//        datas.add(obj);
+//    }
 
     @Override
     public int getCount() {
@@ -50,15 +59,16 @@ public class AdapterRouteStep extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View v;
         if(convertView == null) {
-            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_route_step, parent, false);
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_route_solution, parent, false);
             TextView howTextView = (TextView) v.findViewById(R.id.howcol);
             TextView descriptionTextView = (TextView) v.findViewById(R.id.descriptioncol);
             TextView needTextView = (TextView) v.findViewById(R.id.needcol);
             ImageView howImageView = (ImageView) v.findViewById(R.id.howimage);
             ImageView needImageView = (ImageView) v.findViewById(R.id.needimage);
+//            v.setClickable(true);
 
             try {
                 JSONObject current = datas.get(position);
@@ -71,6 +81,7 @@ public class AdapterRouteStep extends BaseAdapter {
                     needImageView.setImageResource(R.drawable.money);
                 }else{
                     needTextView.setVisibility(View.GONE);
+                    needImageView.setVisibility(View.GONE);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -81,3 +92,5 @@ public class AdapterRouteStep extends BaseAdapter {
         return v;
     }
 }
+
+

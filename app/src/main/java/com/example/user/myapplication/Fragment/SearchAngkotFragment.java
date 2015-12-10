@@ -1,9 +1,9 @@
 package com.example.user.myapplication.Fragment;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +12,12 @@ import android.widget.Button;
 import com.example.user.myapplication.R;
 
 /**
- * Created by user on 10/8/2015.
+ * Created by user on 12/9/2015.
  */
-public class SearchRouteFragment extends Fragment {
-
+public class SearchAngkotFragment extends Fragment {
     private FragmentManager fm;
     private FragmentTransaction transaction;
-    Button pindahbutton;
+    Button searchAngkot;
 
     @Override
     public  void onCreate(Bundle savedInstance){
@@ -28,15 +27,15 @@ public class SearchRouteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreateView(inflater, container, savedInstanceState);
-        final View rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        final View rootView = inflater.inflate(R.layout.angkot_searcher, container, false);
 
-        pindahbutton = (Button) rootView.findViewById(R.id.button);
-        pindahbutton.setOnClickListener(new View.OnClickListener() {
+        searchAngkot = (Button) rootView.findViewById(R.id.button);
+        searchAngkot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fm = getFragmentManager();
                 rootView.setEnabled(false);
-                transaction = fm.beginTransaction().addToBackStack(null).replace(R.id.container, new RouteSolutionFragment());
+                transaction = fm.beginTransaction().addToBackStack(null).replace(R.id.container, new AngkotSolutionFragment());
                 transaction.commit();
             }
         });
