@@ -1,4 +1,4 @@
-package com.example.user.myapplication;
+package com.example.user.myapplication.Fragment;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,18 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 
-import org.json.JSONException;
+import com.example.user.myapplication.R;
 
 /**
  * Created by user on 10/8/2015.
  */
-public class FirstFragment extends Fragment {
+public class SearchRouteFragment extends Fragment {
 
     private FragmentManager fm;
     private FragmentTransaction transaction;
     Button pindahbutton;
+
+    @Override
+    public  void onCreate(Bundle savedInstance){
+        super.onCreate(savedInstance);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -31,7 +35,7 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fm = getFragmentManager();
-                transaction = fm.beginTransaction().replace(R.id.container, new ListSolution());
+                transaction = fm.beginTransaction().addToBackStack(null).replace(R.id.container, new ListSolutionFragment());
                 transaction.commit();
             }
         });

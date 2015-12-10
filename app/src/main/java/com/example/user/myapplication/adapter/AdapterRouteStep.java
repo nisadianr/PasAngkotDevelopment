@@ -1,12 +1,13 @@
-package com.example.user.myapplication;
+package com.example.user.myapplication.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.user.myapplication.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,15 +18,15 @@ import java.util.List;
 /**
  * Created by user on 11/12/2015.
  */
-public class CustomAdapter extends BaseAdapter {
+public class AdapterRouteStep extends BaseAdapter {
 
     List<JSONObject> datas;
 
-    public CustomAdapter(){
+    public AdapterRouteStep(){
         datas = new ArrayList<>();
     }
 
-    public CustomAdapter(List<JSONObject> datas){
+    public AdapterRouteStep(List<JSONObject> datas){
         this.datas = datas;
     }
 
@@ -52,7 +53,7 @@ public class CustomAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v;
         if(convertView == null) {
-            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_list, parent, false);
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_step, parent, false);
             TextView howTextView = (TextView) v.findViewById(R.id.howcol);
             TextView descriptionTextView = (TextView) v.findViewById(R.id.descriptioncol);
             TextView needTextView = (TextView) v.findViewById(R.id.needcol);
@@ -68,6 +69,8 @@ public class CustomAdapter extends BaseAdapter {
                 if(current.getString("need") != null){
                     needTextView.setText(current.getString("need"));
                     needImageView.setImageResource(R.drawable.money);
+                }else{
+                    needTextView.setVisibility(View.GONE);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

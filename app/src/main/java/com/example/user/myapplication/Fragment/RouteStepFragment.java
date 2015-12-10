@@ -1,13 +1,14 @@
-package com.example.user.myapplication;
+package com.example.user.myapplication.Fragment;
 
-import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.user.myapplication.adapter.AdapterStep;
+import com.example.user.myapplication.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,22 +19,21 @@ import java.util.List;
 /**
  * Created by user on 10/8/2015.
  */
-public class ListSolution extends Fragment {
+public class RouteStepFragment extends Fragment {
 
-    public JSONObject listSolution = new JSONObject();
+    public List<JSONObject> steps = new ArrayList<>();
     private ListView listView;
+
+    public RouteStepFragment(List<JSONObject> steps){
+        this.steps = steps;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.list_solution_layout, parent, false);
+        View v = inflater.inflate(R.layout.list_step, parent, false);
         listView = (ListView) v.findViewById(R.id.listviewsolution);
 
-        CustomAdapter adapter = null;
-        try {
-            adapter = new CustomAdapter(getDummyRoute());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        AdapterStep adapter = new AdapterStep(steps);
 
         listView.setAdapter(adapter);
         return v;
