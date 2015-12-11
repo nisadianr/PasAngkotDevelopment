@@ -35,7 +35,10 @@ public class SearchAngkotFragment extends Fragment {
             public void onClick(View v) {
                 fm = getFragmentManager();
                 rootView.setEnabled(false);
-                transaction = fm.beginTransaction().addToBackStack(null).replace(R.id.container, new AngkotSolutionFragment());
+                transaction = fm.beginTransaction()
+                        .add(R.id.container, new AngkotSolutionFragment())
+                        .hide(SearchAngkotFragment.this)
+                        .addToBackStack(SearchAngkotFragment.class.getName());
                 transaction.commit();
             }
         });

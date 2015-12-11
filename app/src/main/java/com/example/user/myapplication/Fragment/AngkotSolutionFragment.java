@@ -39,7 +39,7 @@ public class AngkotSolutionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreateView(inflater, container, savedInstanceState);
-        final View rootView = inflater.inflate(R.layout.list_step, container, false);
+        final View rootView = inflater.inflate(R.layout.list_solution, container, false);
         listView = (ListView) rootView.findViewById(R.id.listviewsolution);
 
         listView.setAdapter(new AdapterAngkotSolution());

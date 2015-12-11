@@ -104,20 +104,20 @@ public class PagerFragment extends Fragment {
             Log.d("huba", "getItemPosition(" + object.getClass().getName() + ") = " + (pos == POSITION_NONE ? "POSITION_NONE" : "POSITION_UNCHANGED"));
             return pos;
         }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            Log.d("huba", "instantiateItem(" + position + ")" + " yang hidup = " + viewPager.getCurrentItem());
-            Fragment fragment = (Fragment) super.instantiateItem(container, position);
-            fragments.set(position, fragment);
-            return fragment;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            Log.d("huba", "destroyItem(" + position + ")");
-            fragments.set(position, null);
-            super.destroyItem(container, position, object);
-        }
+//
+//        @Override
+//        public Object instantiateItem(ViewGroup container, int position) {
+//            Log.d("huba", "instantiateItem(" + position + ")" + " yang hidup = " + viewPager.getCurrentItem());
+//            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+//            fragments.set(position, fragment);
+//            return fragment;
+//        }
+//
+//        @Override
+//        public void destroyItem(ViewGroup container, int position, Object object) {
+//            Log.d("huba", "destroyItem(" + position + ")");
+//            fragments.set(position, null);
+//            super.destroyItem(container, position, object);
+//        }
     }
 }

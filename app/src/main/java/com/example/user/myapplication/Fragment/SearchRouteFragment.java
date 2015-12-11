@@ -36,7 +36,10 @@ public class SearchRouteFragment extends Fragment {
             public void onClick(View v) {
                 fm = getFragmentManager();
                 rootView.setEnabled(false);
-                transaction = fm.beginTransaction().addToBackStack(null).replace(R.id.container, new RouteSolutionFragment());
+                transaction = fm.beginTransaction()
+                        .add(R.id.container, new AngkotSolutionFragment())
+                        .hide(SearchRouteFragment.this)
+                        .addToBackStack(SearchAngkotFragment.class.getName());
                 transaction.commit();
             }
         });
