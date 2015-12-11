@@ -30,7 +30,7 @@ public class RouteStepFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.list_step, parent, false);
+        View v = inflater.inflate(R.layout.list_solution, parent, false);
         listView = (ListView) v.findViewById(R.id.listviewsolution);
 
         AdapterRouteStep adapter = new AdapterRouteStep(steps);
