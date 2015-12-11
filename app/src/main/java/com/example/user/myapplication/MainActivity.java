@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.user.myapplication.Fragment.PagerFragment;
 import com.example.user.myapplication.Fragment.SearchAngkotFragment;
 import com.example.user.myapplication.Fragment.SearchRouteFragment;
 import com.google.android.gms.appindexing.Action;
@@ -38,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fm = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction fragment = fm.beginTransaction().replace(R.id.container, new SearchAngkotFragment());
+        android.support.v4.app.FragmentTransaction fragment = fm.beginTransaction().replace(R.id.container, new PagerFragment());
         fragment.commit();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
